@@ -16,3 +16,15 @@ Make sure you have the following installed on your machine:
 - [k9s](https://k9scli.io/topics/install/)
 - [Python 3+](https://www.python.org/downloads/)
 - [PostgreSQL](https://www.postgresql.org/download/)
+
+### Create fake users
+
+We assume users already exist in a database somewhere. For this demo, can will create a minimal database with a single table and a one user.
+
+The fixture for creating the table initial user is in `auth\init.sql`.
+
+PowerShell:
+
+```powershell
+Get-Content auth\init.sql | psql -U <YOUR-USERNAME> -p <PORT-NUMBER>
+```
