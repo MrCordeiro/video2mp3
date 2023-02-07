@@ -15,13 +15,16 @@ RUN apt-get update --yes --quiet && apt-get install --no-install-recommends --no
     # psycopg2 dependencies
     libpq-dev \
     # cleanup
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && pip install --upgrade pip \
+  && pip install poetry 
 
 WORKDIR ${APP_HOME}
+
+COPY poetry.lock pyproject.toml ${APP_HOME}
+RUN Poetry install --no-interaction --no-ansi
+
 COPY . ${APP_HOME}
-RUN pip install --upgrade pip \
-    && pip install poetry \
-    && poetry install --no-interaction --no-ansi
 
 EXPOSE 5000
 
