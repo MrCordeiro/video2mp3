@@ -12,7 +12,7 @@ Make sure you have the following installed on your machine:
 
 - [Docker](https://www.docker.com/)
 - [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- [minikube](https://minikue.sigs.k8s.io/docs/start/)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [k9s](https://k9scli.io/topics/install/)
 - [Python 3+](https://www.python.org/downloads/)
 - [PostgreSQL](https://www.postgresql.org/download/)
