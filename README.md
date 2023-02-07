@@ -28,3 +28,11 @@ PowerShell:
 ```powershell
 Get-Content auth\init.sql | psql -U <YOUR-USERNAME> -p <PORT-NUMBER>
 ```
+
+## Commands
+
+Apply all the Kubernetes manifests for the auth service:
+
+```bash
+kubectl apply -f auth/manifests/
+```
