@@ -28,4 +28,4 @@ COPY . ${APP_HOME}
 
 EXPOSE 5000
 
-CMD ["python3", "auth/server.py"]
+CMD ["python3", "server.py"]
