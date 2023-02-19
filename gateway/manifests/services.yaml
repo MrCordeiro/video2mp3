@@ -1,0 +1,18 @@
+# A service is a group of pods. This allows us not to have to use the pod IP 
+# address directly, but instead use the service name. This is useful for when
+# pods are created and destroyed, as the service will always point to the
+# correct pods. This is also useful for when we want to scale our application,
+# as we can scale the number of pods that the service points to, and the 
+# service will always point to the correct pods.
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+spec:
+  selector:
+    app: gateway
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
