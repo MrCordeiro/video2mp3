@@ -22,7 +22,7 @@ RUN apt-get update --yes --quiet && apt-get install --no-install-recommends --no
 WORKDIR ${APP_HOME}
 
 COPY poetry.lock pyproject.toml ${APP_HOME}
-RUN Poetry install --no-interaction --no-ansi
+RUN poetry install --no-interaction --no-ansi
 
 COPY . ${APP_HOME}
 
