@@ -45,11 +45,20 @@ minikube addons enable ingress
 
 ## Running the app locally
 
-Start by applying all the Kubernetes manifests for the many services and create the appropriate resources:
+After starting `minikube`, don't forget to applying all the Kubernetes manifests so that you can create the appropriate resources for each service:
 
 ```bash
 kubectl apply -f auth/manifests/
 kubectl apply -f gateway/manifests/
+kubectl apply -f rabbit/manifests/
+```
+
+Edit your `/etc/hosts` file and add the following lines:
+
+```hosts
+127.0.0.1 kubernetes.docker.internal
+127.0.0.1 mp3converter.com
+127.0.0.1 rabbitmq-manager.com
 ```
 
 Finally, tunnel the services to your local machine:
@@ -57,6 +66,14 @@ Finally, tunnel the services to your local machine:
 ```bash
 minikube tunnel
 ```
+
+### Create the RabbitMQ queue
+
+Open the RabbitMQ management console at [http://rabbitmq-manager.com:15672](http://rabbitmq-manager.com:15672) and create the following queues:
+
+- `video`, with Durability set to `Durable`
+
+> **Note**: The default user and password for the RabbitMQ management console is `guest` and `guest`.
 
 ## Commands
 

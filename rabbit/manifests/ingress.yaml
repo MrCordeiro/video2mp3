@@ -1,0 +1,20 @@
+# Since the RabbitMQ Management console will be accessed via a web browser
+# (i.e. from outside the cluster), we need to create an ingress configuration.
+# This will create an external IP address that will be used to access the
+# RabbitMQ Management console.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+spec:
+  rules:
+  - host: rabbitm-manager.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rabbitmq
+            port:
+              number: 15672
