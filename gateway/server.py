@@ -1,13 +1,12 @@
 import json
-import os
 
 import gridfs
 import pika
 from flask import Flask, request
 from flask_pymongo import PyMongo
 
-from .auth import login, validate_token
-from .storage import upload_file
+from gateway.auth import login, validate_token
+from gateway.storage import upload_file
 
 server = Flask(__name__)
 # Access mongodb located on the dev environment

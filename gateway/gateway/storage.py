@@ -7,7 +7,7 @@ from gridfs import GridFS
 from werkzeug.datastructures import FileStorage
 
 
-def upload(
+def upload_file(
     file: FileStorage,
     fs: GridFS,
     channel: pika.BlockingConnection,
