@@ -1,9 +1,14 @@
+# Ingress consists of a load balancer and a set of rules that define how the
+# load balancer routes traffic.
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gateway-ingress
+  # The default ingress controller is nginx
   annotations:
+    # Allow large file uploads
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    # Timeout after 10 minutes
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
 spec:
