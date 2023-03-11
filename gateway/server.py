@@ -28,7 +28,7 @@ channel = connection.channel()
 # Routes
 @server.route("/login", methods=["POST"])
 def login_route():
-    token, err = login(request.json)
+    token, err = login(request)
     if err:
         return err
     return token
