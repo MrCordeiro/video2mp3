@@ -19,8 +19,8 @@ spec:
         app: auth
     spec:
       containers:
-        - name: auth-services
-          image: supernecros/auth-services
+        - name: auth-service
+          image: supernecros/auth-service
           ports:
             - containerPort: 5000
           envFrom:
