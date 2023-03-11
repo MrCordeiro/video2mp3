@@ -31,15 +31,18 @@ def login():
 
     conn = get_db_connection()
     cur = conn.cursor()
-    res = cur.execute(f"SELECT email, password FROM user WHERE email='{auth.username}'")
+    cur.execute(
+        f"SELECT email, password FROM public.user WHERE email='{auth.username}'"
+    )
+
+    user_info = cur.fetchone()
     cur.close()
     conn.close()
-    if res <= 0:
-        return "Invalide credentials", 401
+    if not user_info:
+        return "Invalid credentials", 401
 
-    user_row = cur.fetchone()
-    email = user_row[0]
-    password = user_row[1]
+    email = user_info[0]
+    password = user_info[1]
     if auth.username != email or auth.password != password:
         return "Invalid credentials", 401
 
