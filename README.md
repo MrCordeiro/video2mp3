@@ -72,6 +72,7 @@ minikube tunnel
 Open the RabbitMQ management console at [http://rabbitmq-manager.com:15672](http://rabbitmq-manager.com:15672) and create the following queues:
 
 - `video`, with Durability set to `Durable`
+- `mp3`, also with Durability set to `Durable`
 
 > **Note**: The default user and password for the RabbitMQ management console is `guest` and `guest`.
 
@@ -92,3 +93,17 @@ kubectl scale deployment --replicas=<NUMBER-OF-REPLICAS> <SERVICE-NAME>
 ```
 
 You might want to scale some services that are not in use to 0 replicas to save resources.
+
+## Usage
+
+Start by logging in with the your credentials. We will be using the fake user we created [earlier](#create-fake-users).
+
+```bash
+curl -X POST http://mp3converter.com/login -u test@email.com:fake_pwd
+```
+
+Collect the token from the response and use it to convert a video to MP3:
+
+```bash
+curl -X POST -F '<FILE_PATH.mp4>' -H 'Authorization: Bearer <TOKEN>' http://mp3converter.com/uplod
+```
