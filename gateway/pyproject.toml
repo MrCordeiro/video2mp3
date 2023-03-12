@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gateway"
-version = "0.1.0"
+version = "1.0.0"
 description = "API Getaway for video2mp3 microservices"
 authors = ["Fernando Cordeiro <fernando_cordeiro@live.com>"]
 readme = "README.md"

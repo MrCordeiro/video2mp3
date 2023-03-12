@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "convert"
-version = "0.1.0"
+version = "1.0.0"
 description = "Converts videos to mp3"
 authors = ["Fernando Cordeiro <fernando@email.com>"]
 readme = "README.md"

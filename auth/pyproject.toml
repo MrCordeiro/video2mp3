@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "auth"
-version = "0.1.0"
+version = "1.0.0"
 description = "A Flask app used to authenticate users and provide them with a JWT token."
 authors = ["Fernando Cordeiro <fernando@email.com>"]
 readme = "README.md"
