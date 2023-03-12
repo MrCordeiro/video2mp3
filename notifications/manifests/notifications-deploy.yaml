@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notifications
+  labels:
+    app: notifications
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notifications
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+  template:
+    metadata:
+      labels:
+        app: notifications
+    spec:
+      containers:
+        - name: notifications
+          image: supernecros/notifications-service
+          envFrom:
+            - configMapRef:
+                name: notifications-configmap
+            - secretRef:
+                name: notifications-secret

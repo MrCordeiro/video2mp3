@@ -105,5 +105,11 @@ curl -X POST http://mp3converter.com/login -u test@email.com:fake_pwd
 Collect the token from the response and use it to convert a video to MP3:
 
 ```bash
-curl -X POST -F '<FILE_PATH.mp4>' -H 'Authorization: Bearer <TOKEN>' http://mp3converter.com/uplod
+curl -X POST -F 'filename=@<FILE_PATH.mp4>' -H 'Authorization: Bearer <TOKEN>' http://mp3converter.com/upload
+```
+
+The converter should send a notification to the email you used for your fake user. After that, to download the converted file, run:
+
+```bash
+curl -X GET --output <OUTPUT_PATH.mp3> -H "Authorization: Bearer <TOKEN>" "http://mp3converter.com/download?fid=<FID_FROM_NOTIFICATION>"
 ```
