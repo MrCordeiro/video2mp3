@@ -1,4 +1,4 @@
-# Video to MP# converter
+# Video to MP3 converter
 
 ## Introduction
 
