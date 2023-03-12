@@ -14,8 +14,6 @@ RUN apt-get update --yes --quiet && apt-get install --no-install-recommends --no
     build-essential \
     # MoviePy dependencies
     ffmpeg \
-    # psycopg2 dependencies
-    libpq-dev \
     # cleanup
   && rm -rf /var/lib/apt/lists/* \
   && pip install --upgrade pip \
